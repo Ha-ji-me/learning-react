@@ -75,10 +75,12 @@
 
         //JSX記法
         let jsxDom = document.querySelector('#jsx');
+        let title = 'JSX';
+        let message = 'jsxによる表示です'
         let jsxElement = (
             <div>
-                <h2>JSX</h2>
-                <p>jsxによる表示です</p>
+                <h2>{ title }</h2>
+                <p>{ message }</p>
             </div>
         );
         ReactDOM.render(jsxElement, jsxDom);
