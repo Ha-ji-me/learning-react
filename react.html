@@ -77,10 +77,17 @@
         let jsxDom = document.querySelector('#jsx');
         let title = 'JSX';
         let message = 'jsxによる表示です'
+        let link = "http://google.com";
+        let style = {
+            fontSize: "20pt",
+            color: "red",
+            border: "1px solid blue",
+        }
         let jsxElement = (
             <div className="alert alert-primary">
                 <h2>{ title }</h2>
-                <p>{ message }</p>
+                <p style={ style }>{ message }</p>
+                <a href={ link }>googleへ</a>
             </div>
         );
         ReactDOM.render(jsxElement, jsxDom);
