@@ -22,7 +22,7 @@
     <div class="container mt-3">
         <div id="root" onclick="doCount();">wait...</div>
     </div>
-    <div id="test">変更されます。</div>
+    <div id="test" class="container mt-3">変更されます。</div>
     <div class="container mt-3">
         <p>Form利用</p>
         <form>
@@ -51,6 +51,7 @@
     <div id="jsx" class="mt-3 container"></div>
     <div id="bool" class="mt-3 container"></div>
     <div id="component" class="mt-3 container"></div>
+    <div id="class" class="mt-3 container"></div>
 
 
     <script type="text/babel">
@@ -123,6 +124,26 @@
         );
 
         ReactDOM.render(componentEl, componentDom);
+
+        //クラスコンポーネント
+        class TestComponent extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+
+            render() {
+                return <div><p>クラスコンポーネントです</p></div>
+            }
+        }
+
+        let classDom = document.querySelector('#class');
+        let classEl = (
+            <div>
+                <TestComponent />
+            </div>
+        );
+
+        ReactDOM.render(classEl, classDom);
 
         //JSX記法
         let jsxDom = document.querySelector('#jsx');
