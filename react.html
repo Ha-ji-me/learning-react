@@ -49,6 +49,7 @@
         </form>
     </div>
     <div id="jsx" class="mt-3 container"></div>
+    <div id="bool"></div>
 
 
     <script type="text/babel">
@@ -72,6 +73,26 @@
             React.createElement('h4', {}, '3つ目'),
         ]);
         ReactDOM.render(testElement, testDom);
+
+        let boolDom = document.querySelector('#bool');
+        let flag = true;
+        let data = [
+            <li>aaa</li>,
+            <li>bbb</li>,
+            <li>ccc</li>,
+        ];
+        let el = (
+        <div>
+            {flag &&
+                <div>
+                    <p>trueの場合に表示されます</p>
+                    { data }
+                    { data.map( () => <li>xxx</li>) }
+                </div>
+            }
+        </div>
+        )
+        ReactDOM.render(el, boolDom);
 
         //JSX記法
         let jsxDom = document.querySelector('#jsx');
