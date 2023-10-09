@@ -127,19 +127,39 @@
 
         //クラスコンポーネント
         class TestComponent extends React.Component {
+            x = 0
+            y = 0
+            width = 0
+            height = 0
+            color = 0
+            style = {}
+
             constructor(props) {
                 super(props)
+                this.x = props.x
+                this.y = props.x
+                this.width = props.x
+                this.color = props.x
+                this.style = {
+                    backgroundColor:this.color,
+                    position:"absolute",
+                    left:this.x + "px",
+                    top:this.y + "px",
+                    width:this.width + "px",
+                    height:this.height + "px",
+                }
             }
 
             render() {
-                return <div><p>クラスコンポーネントです</p></div>
+                return <div style={this.style}></div>
             }
         }
 
         let classDom = document.querySelector('#class');
         let classEl = (
             <div>
-                <TestComponent />
+                <TestComponent x="200" y="200" w="200" h="200" c="cyan" />
+                <TestComponent x="300" y="300" w="200" h="200" c="magenta" />
             </div>
         );
 
