@@ -49,7 +49,8 @@
         </form>
     </div>
     <div id="jsx" class="mt-3 container"></div>
-    <div id="bool"></div>
+    <div id="bool" class="mt-3 container"></div>
+    <div id="component" class="mt-3 container"></div>
 
 
     <script type="text/babel">
@@ -93,6 +94,35 @@
         </div>
         )
         ReactDOM.render(el, boolDom);
+
+        //関数コンポーネント
+        let componentDom = document.querySelector('#component');
+        function Welcome(props) {
+            let el =
+                <div className={props.alert}>
+                    <p>{props.message}</p>
+                    <div>
+                        <Calc class={props.class} number={props.number}/>
+                    </div>
+                </div>
+            return el;
+        }
+
+        function Calc(props) {
+            let total = 0
+            for(let i = 1; i <= props.number; i++){
+                total += i;
+            }
+            return <p className={props.class}>1から{props.number}までの合計は、{total}です。</p>
+        }
+
+        let componentEl = (
+            <div>
+                <Welcome message="関数コンポーネントです" alert="alert alert-primary" class="h3" number="100"/>
+            </div>
+        );
+
+        ReactDOM.render(componentEl, componentDom);
 
         //JSX記法
         let jsxDom = document.querySelector('#jsx');
